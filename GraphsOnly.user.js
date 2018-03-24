@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         AutoTrimpsV2+genBTC-GraphsOnly
-// @namespace    https://github.com/genbtc/AutoTrimps
+// @namespace    https://raw.githubusercontent.com/genbtc/AutoTrimps/december
 // @version      2.1.6.5-genbtc-3-7-2018+Mod+Uni+coderpatsy
 // @description  Graphs Module (only) from AutoTrimps
 // @author       zininzinin, spindrjr, belaith, ishakaru, genBTC
@@ -20,7 +20,7 @@ function safeSetItems(name,data) {
     }
 }
 //This can be edited to point to your own Github Repository URL.
-var basepath = 'https://genbtc.github.io/AutoTrimps/';
+var basepath = 'https://raw.githubusercontent.com/genbtc/AutoTrimps/december';
 var script = document.createElement('script');
 script.id = 'AutoTrimps-Graphs';
 script.src = basepath + 'Graphs.js';

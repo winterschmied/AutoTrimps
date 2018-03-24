@@ -14,7 +14,7 @@ var ATversion = '2.1.6.5-genbtc-3-7-2018+Mod+Uni+coderpatsy';
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////
 var atscript = document.getElementById('AutoTrimps-script')
-  , basepath = 'https://genbtc.github.io/AutoTrimps/'
+  , basepath = 'https://raw.githubusercontent.com/genbtc/AutoTrimps/december'
   , modulepath = 'modules/'
   ;
 //This should redirect the script to wherever its being mirrored from.
