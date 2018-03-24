@@ -12,7 +12,7 @@
 var script = document.createElement('script');
 script.id = 'AutoTrimps-script';
 //This can be edited to point to your own Github Repository URL.
-script.src = 'https://raw.githubusercontent.com/genbtc/AutoTrimps/decemberAutoTrimps2.js';
+script.src = 'https://raw.githubusercontent.com/genbtc/AutoTrimps/december/AutoTrimps2.js';
 document.head.appendChild(script);
 
 // This File is Deprecated, please use .user.js instead (with the leading dot) so TamperMonkey/Greasemonkey can detect it as a script automatically.
