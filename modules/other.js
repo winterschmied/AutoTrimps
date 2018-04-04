@@ -30,9 +30,7 @@ function autoGoldenUpgradesAT(setting) {
     if (setting == "Void" && goldStrat == "Max then Helium") {
       var nextVoidAmt = game.goldenUpgrades.Void.nextAmt().toFixed(2);
       if (nextVoidAmt == 0.12)   //skip the 6th void upgrade
-        setting = "Helium";
-      if (challSQ)  //always buy battle during max then helium mode.
-        setting = "Battle";
+        setting = (challSQ) ? "Battle" : "Helium"; //always buy battle during max then helium mode.
     }
     //buy one upgrade per loop.
     var success = buyGoldenUpgrade(setting);
@@ -55,8 +53,6 @@ function autoGoldenUpgradesAT(setting) {
         } else if (goldStrat == "Zone") {
             var goldZone = getPageSetting('goldZone');
             setting = (game.global.world <= goldZone || noBat) ? "Helium" : "Battle";
-        } else if (goldStrat == "Max then Helium") {
-            setting = (challSQ) ? "Battle" : "Helium";
         } else
             setting = (challSQ) ? "Battle" : "Helium";
         buyGoldenUpgrade(setting);
