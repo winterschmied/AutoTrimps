@@ -73,9 +73,8 @@ function updateOldSettings(oldSettings) {
             oldSettings['AutoMaps'].value++;
         delete oldSettings['RunUniqueMaps'];
     }
-    //These settingsneed to be migrated here:
+    //These settings need to be migrated here:
 /*
-
 BuyBuildingsNew = BuyBuildings + BuyStorage
 BuyWeaponsNew  = BuyWeaponUpgrades + BuyWeapons
 BuyArmorNew = BuyArmorUpgrades + BuyArmor
@@ -86,20 +85,26 @@ AutoHeirloomsNew = AutoHeirlooms + AutoHeirlooms2
 ScryerDieToUseS += ScryerDieZ
 (+more since 5 days ago)
 */
+    
+    //migrate two booleans X + Y to new multiToggle Z
+    // old AT settings as first param. second param is a list of two olds, then the new .
+    function migrateTwoBoolsToOneMultiToggle(oldSettings,settings) {
+        var oldOne = settings[0];
+        var oldTwo = settings[1];
+        var newOne = settings[2];        
+        debug("ATsettings: Migrating " + oldOne + " + " + oldTwo + " to new " + newOne);
+        oldSettings[newOne].value = oldSettings[oldOne].enabled ? 1 : 0;
+        oldSettings[newOne].value+= oldSettings[oldTwo].enabled ? 1 : 0;
+        delete oldSettings[oldOne];
+        delete oldSettings[oldTwo];
+    }
     if (versionIsOlder(oldVer, '2.1.7.0')) {
-        //example:*untested*
-        var X='BuyBuildings';
-        var Y='BuyStorage';
-        var Z='BuyBuildingsNew';
-        //migrate X + Y to new Z
-        var oldOne = oldSettings[X];
-        var oldTwo = oldSettings[Y];
-        var newOne = oldSettings[Z];        
-        debug("ATsettings: Migrating " + X + " + " + Y + " to new " + Z);
-        newOne.value = oldOne.enabled ? 1 : 0;
-        newOne.value+= oldTwo.enabled ? 1 : 0;
-        delete oldOne;
-        delete oldTwo;      
+        migrateTwoBoolsToOneMultiToggle(oldSettings,['BuyBuildings','BuyStorage','BuyBuildingsNew']);
+        migrateTwoBoolsToOneMultiToggle(oldSettings,['BuyWeaponUpgrades','BuyWeapons','BuyWeaponsNew']);
+        migrateTwoBoolsToOneMultiToggle(oldSettings,['BuyArmorUpgrades','BuyArmor','BuyArmorNew']);
+        migrateTwoBoolsToOneMultiToggle(oldSettings,['BuyOvclock','OneTimeOnly','BuyOneTimeOC']);
+        migrateTwoBoolsToOneMultiToggle(oldSettings,['PrestigeSkipMode','PrestigeSkip2','PrestigeSkip1_2']);
+        migrateTwoBoolsToOneMultiToggle(oldSettings,['AutoHeirlooms','AutoHeirlooms2','AutoHeirloomsNew']);
     }
     autoTrimpSettings = oldSettings;
 }
