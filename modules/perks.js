@@ -52,7 +52,7 @@ var preset_Zek299 = [16.8, 3, 1.9, 1.1, 1.2, 1, 17.1, 3, 100, 0.06, 0.8, 0, 0];
 var preset_Zek399 = [135, 6.1, 18.5, 6.5, 2.5, 6, 17, 6.1, 25, 0.08, 1, 0, 0];
 var preset_Zek449 = [245, 5.85, 29, 1.95, 2.8, 6, 6.1, 5.85, 15, 0.05, 1, 57, 0];
 //gather these into an array of objects. this is one important object.
-var presetList = [preset_ZXV,preset_ZXVnew,preset_ZXV3,preset_TruthEarly,preset_TruthLate,preset_nsheetz,preset_nsheetzNew,preset_HiderHehr,preset_HiderBalance,preset_HiderMore,preset_genBTC,preset_genBTC2,preset_Zek4501,preset_Zek4502,preset_Zek450,preset_space,preset_Zek059,preset_Zek100,preset_Zek180,preset_Zek229,preset_Zek299,preset_Zek399,preset_Zek449,preset_Zek450];
+var presetList = [preset_ZXV,preset_ZXVnew,preset_ZXV3,preset_TruthEarly,preset_TruthLate,preset_nsheetz,preset_nsheetzNew,preset_HiderHehr,preset_HiderBalance,preset_HiderMore,preset_genBTC,preset_genBTC2,preset_Zek4501,preset_Zek4502,preset_Zek450,preset_space,preset_Zek059,preset_Zek100,preset_Zek180,preset_Zek229,preset_Zek299,preset_Zek399,preset_Zek449,preset_Zek450,preset_space];
 //Specific ratios labeled above must be given the matching ID below.
 //Ratio preset dropdown list
 var presetListHtml = "\
@@ -80,6 +80,7 @@ var presetListHtml = "\
 <option id='preset_Zek399'>Zeker0 (z300-399)</option>\
 <option id='preset_Zek449'>Zeker0 (z400-449)</option>\
 <option id='preset_Zek450'>Zeker0 (z450+) (new)</option>\
+<option id='preset_space'>--------------</option>\
 <option id='customPreset'>CUSTOM ratio</option></select>";
 //Custom Creation for all perk customRatio boxes in Trimps Perk Window
 AutoPerks.createInput = function(perkname,div) {
@@ -182,9 +183,11 @@ AutoPerks.displayGUI = function() {
     var loadLastPreset = localStorage.getItem('AutoperkSelectedRatioPresetID');
     var setID;
     if (loadLastPreset != null) { 
-        //these two lines are temporary to migrate Custom Ratios to the new dropdown. Once everyone has the name in localStorage we can remove this.
+        //these four lines are temporary to migrate Custom Ratios to the new dropdown. Once everyone has the name in localStorage we can remove this.
         if (loadLastPreset == 15 && !localStorage.getItem('AutoperkSelectedRatioPresetName'))
-            loadLastPreset = 24;
+            loadLastPreset = 25;
+        if (localStorage.getItem('AutoperkSelectedRatioPresetName')=="customPreset")
+            loadLastPreset = 25;
         setID = loadLastPreset;
     }
     else 
