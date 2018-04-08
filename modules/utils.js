@@ -77,7 +77,6 @@ function updateOldSettings(oldSettings) {
 /*
 
 BuyBuildingsNew = BuyBuildings + BuyStorage
-BuyJobsNew = BuyJobs + WorkerRatios
 BuyWeaponsNew  = BuyWeaponUpgrades + BuyWeapons
 BuyArmorNew = BuyArmorUpgrades + BuyArmor
 ManualGather2 was 2 now 3 (4=way)  - needs to be converted.
