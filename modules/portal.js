@@ -28,6 +28,13 @@ function autoPortal() {
                 var bestHeHrZone = game.stats.bestHeliumHourThisRun.atZone;
                 var myHeliumHr = game.stats.heliumHour.value();
                 var heliumHrBuffer = Math.abs(getPageSetting('HeliumHrBuffer'));
+                // Take a different buffer for dailys if set
+                if (game.global.challengeActive == "Daily") {
+                	heliumDailyBuffer = Math.abs(getPageSetting('HeliumDailyBuffer'));
+                	if (heliumDailyBuffer > 0)
+                		heliumHrBuffer = heliumDailyBuffer;
+                }
+                	
                 //Multiply the buffer by (5) if we are in the middle of a zone   (allows portaling midzone if we exceed (5x) the buffer)
                 if (!aWholeNewWorld)
                     heliumHrBuffer *= MODULES["portal"].bufferExceedFactor;
