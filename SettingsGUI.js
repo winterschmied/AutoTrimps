@@ -267,11 +267,12 @@ function initializeAllSettings() {
     createSetting('HeliumDailyBuffer', 'He/Hr Daily Buffer %', 'This works exactly the same as HeliumHrBuffer, but only for Daily Challenges. If set, it replaces HeliumHrBuffer.', 'value', '0', null, 'Core');
     createSetting('PauseScript', 'Pause AutoTrimps', 'Pause AutoTrimps Script (not including the graphs module)', 'boolean', null, null, 'Core');
     //code to locate the pause button at lower right
+    /**
     var $pauseScript = document.getElementById('PauseScript');
     $pauseScript.parentNode.style.setProperty('float','right');
     $pauseScript.parentNode.style.setProperty('margin-right','1vw');
     $pauseScript.parentNode.style.setProperty('margin-left','0');
-
+*/
 
 
 
