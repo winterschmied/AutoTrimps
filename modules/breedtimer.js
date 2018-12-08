@@ -86,6 +86,12 @@ function autoBreedTimer() {
         }
         else if (getPageSetting('SpireBreedTimer') > -1 && isActiveSpireAT())
             newGeneTimerSetting = getPageSetting('SpireBreedTimer');
+        // set a lower timer for daily callenges plague and bogged
+        // set 2 seconds for now, a variable would be better
+        else if (game.global.challengeActive == "Daily" && (typeof game.global.dailyChallenge.plague !== 'undefined'))
+        	newGeneTimerSetting = 2;
+        else if (game.global.challengeActive == 'Daily' && (typeof game.global.dailyChallenge.bogged !== 'undefined'))
+        	newGeneTimerSetting = 2;
         else
             newGeneTimerSetting = defaultBreedTimer;
         if (newGeneTimerSetting != targetBreed) {
