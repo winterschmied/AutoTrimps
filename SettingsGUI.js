@@ -834,6 +834,8 @@ function updateCustomButtons() {
     (heHr) ? turnOn("HeHrDontPortalBefore") : turnOff("HeHrDontPortalBefore");
     //if HeHr is not selected, remove HeHr buffer settingsbox
     (heHr) ? turnOn("HeliumHrBuffer") : turnOff("HeliumHrBuffer");
+    //if HeHr is not selected, remove daily buffer settingsbox
+    (heHr) ? turnOn("HeliumDailyBuffer") : turnOff("HeliumDailyBuffer");
     //if ShieldBlock is for sure, remove ShieldBlock from settingsbox (achievement=12 means z100).
     (game.achievements.zones.finished < 12) ? turnOn("BuyShieldblock") : function(){turnOff("BuyShieldblock");setPageSetting("BuyShieldblock",false);}();
 
